@@ -29,10 +29,21 @@
 }
 
 .feature-inner {
+    position: relative;
     height: 100%;
     background: color(bg, 1);
     padding: 40px 24px;
-    @include shadow;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        @include shadow;
+        mix-blend-mode: multiply;
+    }
 }
 
 .feature-icon {
@@ -40,27 +51,17 @@
     justify-content: center;
 }
 
-.feature-title {
-    margin-top: 12px;
-    margin-bottom: 8px;
-}
-
 @include media( '>medium' ) {
 
     .features {
-        position: relative;
-
-        .section-square {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 240px;
-            width: 44%;
-            background: color(bg, 2);
-        }
 
         .section-title {
             margin-bottom: 56px;
+        }
+
+        .section-inner {
+            padding-top: 56px;
+            padding-bottom: 64px;
         }
     }
 }

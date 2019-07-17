@@ -71,6 +71,7 @@
 	display: block;
 	height: 1px;
 	background: color(bg, 3);
+	background: linear-gradient(to right, rgba(color(bg, 3), .1) 0, rgba(color(bg, 3), .6) 50%, rgba(color(bg, 3), .1) 100%);
 }
 
 @mixin divider($type: false) {
