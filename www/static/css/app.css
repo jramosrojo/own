@@ -450,7 +450,7 @@ body > svg {
   margin: 0; }
 
 html.no-touchevents .nav-video {
-  filter: contrast(110%) brightness(103%); }
+  filter: contrast(100%) brightness(100%); }
 
 .box.active {
   transition-timing-function: ease-in;
