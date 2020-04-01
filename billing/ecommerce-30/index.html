@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stripe Payment Page Recipe</title>
+    <title>Ecommerce 30 - Javier Ramos</title>
     <meta name="description" content="A demo of Stripe Checkout" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/global.css" />
     <!-- Load Stripe.js on your website. -->
@@ -19,8 +19,8 @@
           <div class="sr-header__logo"></div>
         </header>
         <div class="sr-payment-summary payment-view">
-          <h1 class="order-amount">$14.00</h1>
-          <h4>per month subscription</h4>
+          <h1 class="order-amount">30,00€</h1>
+          <h4>suscripción mensual</h4>
         </div>        
         <div class="sr-payment-form payment-view">
           <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
@@ -44,8 +44,8 @@
                 // a successful payment.
                 // Instead use one of the strategies described in
                 // https://stripe.com/docs/payments/checkout/fulfillment
-                successUrl: 'https://billing.jramosrojo.com/success',
-                cancelUrl: 'https://billing.jramosrojo.com/canceled',
+                successUrl: 'https://billing.jramosrojo.com/finalizado',
+                cancelUrl: 'https://billing.jramosrojo.com/cancelado',
               })
               .then(function (result) {
                 if (result.error) {
@@ -59,7 +59,7 @@
           })();
           </script>
           <div class="sr-legal-text">
-            Your card will be immediately charged <span class="order-total">$14.00</span> and then billed $14.00 each month.
+            Tu tarjeta será cargada inmediatamente con <span class="order-total">30€</span> y después cada 30 días.
           </div>
         </div>
     </div>
