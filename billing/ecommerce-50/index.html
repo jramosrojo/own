@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ecommerce 30 - Javier Ramos</title>
+    <meta name="description" content="A demo of Stripe Checkout" />
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/global.css" />
@@ -23,7 +24,7 @@
         </div>        
         <div class="sr-payment-form payment-view">
           <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-          <button id="checkout-button-plan_H15ziDpGwUhnlK" role="link">Pagar</button>
+          <button id="checkout-button-plan_GrppQARapLgqQ3" role="link">Checkout</button>
 
           <div id="error-message"></div>
 
@@ -31,13 +32,12 @@
           (function() {
             var stripe = Stripe('pk_live_i3IQgMSidjHBCkYGqlwr4f6b00ri3U95Lh');
 
-            var checkoutButton = document.getElementById('checkout-button-plan_H15ziDpGwUhnlK');
-            checkoutButton.addEventListener('click', function () {
-              // When the customer clicks on the button, redirect
-              // them to Checkout.
-              stripe.redirectToCheckout({
-                items: [{plan: 'plan_H15ziDpGwUhnlK', quantity: 1}],
-
+            var checkoutButton = document.getElementById('checkout-button-plan_GrppQARapLgqQ3');
+              checkoutButton.addEventListener('click', function () {
+                // When the customer clicks on the button, redirect
+                // them to Checkout.
+                stripe.redirectToCheckout({
+                  items: [{plan: 'plan_GrppQARapLgqQ3', quantity: 1}],
                 // Do not rely on the redirect to the successUrl for fulfilling
                 // purchases, customers may not always reach the success_url after
                 // a successful payment.
