@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ecommerce 30 - Javier Ramos</title>
+    <meta name="description" content="A demo of Stripe Checkout" />
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3"></script>
+  </head>
+
+  <body>
+    <div class="sr-root">
+      <div class="sr-main">
+        <header class="sr-header">
+          <div class="sr-header__logo"></div>
+        </header>
+        <div class="sr-payment-summary payment-view">
+          <h1 class="order-amount">30,00€</h1>
+          <h4>suscripción mensual</h4>
+        </div>        
+        <div class="sr-payment-form payment-view">
+          <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+          <button id="checkout-button-plan_H15ziDpGwUhnlK" role="link">Checkout</button>
+
+          <div id="error-message"></div>
+
+          <script>
+          (function() {
+            var stripe = Stripe('pk_live_i3IQgMSidjHBCkYGqlwr4f6b00ri3U95Lh');
+
+            var checkoutButton = document.getElementById('checkout-button-plan_H15ziDpGwUhnlK');
+            checkoutButton.addEventListener('click', function () {
+              // When the customer clicks on the button, redirect
+              // them to Checkout.
+              stripe.redirectToCheckout({
+                items: [{plan: 'plan_H15ziDpGwUhnlK', quantity: 1}],
+
+                // Do not rely on the redirect to the successUrl for fulfilling
+                // purchases, customers may not always reach the success_url after
+                // a successful payment.
+                // Instead use one of the strategies described in
+                // https://stripe.com/docs/payments/checkout/fulfillment
+                successUrl: 'https://billing.jramosrojo.com/ecommerce-30/finalizado',
+                cancelUrl: 'https://billing.jramosrojo.com/ecommerce-30/cancelado',
+              })
+              .then(function (result) {
+                if (result.error) {
+                  // If `redirectToCheckout` fails due to a browser or network
+                  // error, display the localized error message to your customer.
+                  var displayError = document.getElementById('error-message');
+                  displayError.textContent = result.error.message;
+                }
+              });
+            });
+          })();
+          </script>
+          <div class="sr-legal-text">
+            Tu tarjeta será cargada inmediatamente con <span class="order-total">30€</span> y después cada 30 días.
+          </div>
+        </div>
+    </div>
+    <div class="sr-content">
+      <div class="pasha-image-stack">
+        <img
+          src="https://picsum.photos/280/320?random=1"
+          width="140"
+          height="160"
+        />
+        <img
+          src="https://picsum.photos/280/320?random=2"
+          width="140"
+          height="160"
+        />
+        <img
+          src="https://picsum.photos/280/320?random=3"
+          width="140"
+          height="160"
+        />
+        <img
+          src="https://picsum.photos/280/320?random=4"
+          width="140"
+          height="160"
+        />
+      </div>
+    </div>
+
+  </body>
+</html>
