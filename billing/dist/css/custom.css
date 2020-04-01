@@ -1,0 +1,13 @@
+section.hero.text-light.text-center {
+    padding-top: 60px!important;
+}
+.site-header::before {
+    background: #525f7f!important;
+}
+.button-sm, .button {
+    color: #525f7f!important;
+}
+.button-secondary {
+    color: #ffff!important;
+    background: #525f7f!important;
+}
